@@ -11,7 +11,7 @@
 
 <div style="margin-left:20px;margin-right:20px">
     <div class="mdui-toolbar mdui-color-theme">
-        <span class="mdui-typo-title">Chat Room</span>
+        <span id="page-title" class="mdui-typo-title">Chat Room</span>
         <div class="mdui-toolbar-spacer"></div>
         <a class="mdui-btn mdui-btn-icon" th:href="@{/}">
             <i class="mdui-icon material-icons">exit_to_app</i>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="mdui-container" style="padding:20px 35px">
                         <!-- TODO: add a send button to send message -->
-                        <button class="mdui-btn mdui-color-theme mdui-ripple"
+                        <button id="submitBtn" class="mdui-btn mdui-color-theme mdui-ripple"
                                 onclick="sendMsgToServer()">Send (Enter)
                         </button>
                         <button class="mdui-btn mdui-color-theme mdui-ripple"
@@ -57,11 +57,11 @@
                 <div class="mdui-chip">
                     <span class="mdui-chip-icon mdui-color-blue">
                         <i class="mdui-icon material-icons">face</i></span>
-                    <span class="mdui-chip-title">Online Users <span class="chat-num"></span></span>
+                    <span class="mdui-chip-title">Online Users <span id="count" class="chat-num"></span></span>
                     <!-- TODO: check online number num -->
                 </div>
                 <!-- TODO: add a message container -->
-                <div class="message-container"></div>
+                <div id="messageContainer" class="message-container"></div>
             </div>
 
         </div>
@@ -102,7 +102,7 @@
                 $messageContainer.append(
                     '<div class="mdui-card" style="margin: 10px 0;">' +
                     '<div class="mdui-card-primary">' +
-                    '<div class="mdui-card-content message-content">' + message.username + "：" + message.msg + '</div>' +
+                    '<div id="messagecard" class="mdui-card-content message-content">' + message.username + "：" + message.msg + '</div>' +
                     '</div></div>');
             }
             $('.chat-num').text(message.onlineCount);
